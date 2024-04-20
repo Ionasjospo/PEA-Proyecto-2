@@ -4,10 +4,10 @@ def main():
     print("Juego de dados\n")
 
     print("Tirada Juan \n")
-    resultadosJuan = utils.jugar()
+    resultadosJuan = utils.jugar(None)
     print("-----------------------------------------------------------------------------")
     print("Tirada Maria \n")
-    resultadosMaria = utils.jugar()
+    resultadosMaria = utils.jugar(resultadosJuan)
     print("-----------------------------------------------------------------------------")
 
     print("Resultados finales")
