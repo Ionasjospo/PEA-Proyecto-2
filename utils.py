@@ -23,6 +23,7 @@ def jugar(puntajeAnterior):
     # El jugador tiene dos 4, su puntaje es 4.
     if(dado1 == 4 and dado2 == 4):
         puntaje = dado1
+        return puntaje
     else:
         # El jugador tiene un 4 y un numero mayor que 3, no puede repetir la jugada.
         if (dado1 == 4 and dado2 >= 4) or (dado1 >= 4 and dado2 == 4):
@@ -30,6 +31,7 @@ def jugar(puntajeAnterior):
                 puntaje = dado2
             else:
                 puntaje = dado1
+            return puntaje
 
         # El jugador tiene un 4 y un numero menor que 4, puede tirar de nuevo un dado.
         if(dado1==4 or dado2==4):
@@ -38,32 +40,36 @@ def jugar(puntajeAnterior):
                     # Estrategia de Juan, si o si debemos tirar de nuevo
                     print("Tiramos de vuelta el dado 2.")
                     dado2 = tirar1Dado()
-                    print("Valor segundo dado: ", dado2)
+                    print("Nuevo valor segundo dado: ", dado2)
                     puntaje = dado2
+                    return puntaje
                 else:
                     # Maria ya sabe el resultado de juan
                     if(puntajeAnterior > dado2):
                         #Tiramos de nuevo porque sino perdemos
                         print("Tiramos de vuelta el dado 2.")
                         dado2 = tirar1Dado()
-                        print("Valor segundo dado: ", dado2)
+                        print("Nuevo valor segundo dado: ", dado2)
                     puntaje = dado2
+                    return puntaje
 
             if dado2 == 4 and dado1 <= 3:
                 if(puntajeAnterior == None):
                     # Estrategia de Juan, si o si debemos tirar de nuevo
                     print("Tiramos de vuelta el dado 1.")
                     dado1 = tirar1Dado()
-                    print("Valor primer dado: ", dado1)
+                    print("Nuevo valor primer dado: ", dado1)
                     puntaje = dado1
+                    return puntaje
                 else:
                     # Maria ya sabe el resultado de juan
                     if(puntajeAnterior > dado1):
                         #Tiramos de nuevo porque sino perdemos
                         print("Tiramos de vuelta el dado 1.")
                         dado2 = tirar1Dado()
-                        print("Valor primer dado: ", dado1)
+                        print("Nuevo valor primer dado: ", dado1)
                     puntaje = dado1
+                    return puntaje
         
         if dado1 != 4 and dado2 != 4:
             print("Debes tirar de vuelta \n")
