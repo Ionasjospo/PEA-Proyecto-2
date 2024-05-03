@@ -1,6 +1,6 @@
 import  utils
 
-utils.juan_vs_maria_print()
-utils.simulate_games(10)
-#utils.simulate_games(100)
-# utils.simulate_games(1000)
+# utils.print_results()
+utils.simulate_games(10, True)
+utils.simulate_games(100, False)
+utils.simulate_games(1000, False)
