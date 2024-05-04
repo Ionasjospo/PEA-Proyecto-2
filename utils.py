@@ -46,12 +46,10 @@ def play(previus_score, show_game):
         if(die1==4 or die2==4):
             if die1 == 4 and die2 <= 3:
                 if(previus_score == None):
-                    # If is 6, Juan did not throw again
-                    if die2 != 6:
-                        # Juan strategy, he must throw again
-                        if show_game: print("Throw again the second die.")
-                        die2 = throw_die()
-                        if show_game: print("Second die new value: ", die2)
+                    # Juan strategy, he must throw again
+                    if show_game: print("Throw again the second die.")
+                    die2 = throw_die()
+                    if show_game: print("Second die new value: ", die2)
                     score = die2
                     if show_game: print("Final score: ", score, "\n")
                     return score
