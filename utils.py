@@ -29,16 +29,36 @@ def play(previus_score, show_game):
 
     # The player got a 4 in both dice, the final score is 4
     if(die1 == 4 and die2 == 4):
-        score = 4       
+        if previus_score!=None and previus_score > 4:
+            # Maria must throw again because she will lose
+            if show_game: print("Throw again one die.")
+            die1 = throw_die()
+            if show_game: print("First die new value: ", die1)        
+        score = die1   
         if show_game: print("Final score: ", score, "\n")
         return score
     else: 
         # The player got a 4 in one of the dice, the final score is the other die value       
         if (die1 == 4 and die2 >= 4) or (die2 == 4 and die1 >= 4 ):
-            if die1 == 4:
-                score = die2
+            # This if represents the case when Juan is playing or Juan's result is 
+            # lower or the same than Maria first throw.
+            if(previus_score == None or previus_score <= 4):
+                if die1 == 4:
+                    score = die2
+                else:
+                    score = die1
             else:
-                score = die1
+                # Maria will lose if she does not throw again the die distinct to 4
+                if die1 == 4:
+                    if show_game: print("Throw again second die.")
+                    die2 = throw_die()
+                    if show_game: print("Second die new value: ", die1)  
+                    score = die2
+                else:
+                    if show_game: print("Throw again first die.")
+                    die1 = throw_die()
+                    if show_game: print("First die new value: ", die1)  
+                    score = die1
             if show_game: print("Final score: ", score, "\n")
             return score
         # The player got a 4 in one of the dice and a number lower than 3 in the other, can throw 
