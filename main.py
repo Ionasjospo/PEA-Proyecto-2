@@ -1,7 +1,7 @@
 import  utils
 
 # For play one time
-#utils.print_results()
+utils.print_results()
 
 # To play 1000, 10000, 100000 times
 utils.simulate_games(1000, False)
